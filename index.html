@@ -29,7 +29,8 @@
 	<body>
 		<section class="section">
 			<div class="container">
-				<h1 class="title">Here's three quotes imported from The Simpson API<br><br></h1>
+				<h1 class="title">Here's three quotes imported from The Simpson API</h1>
+				<button id="change">Change quotes</button>
 
 				<div class="content" id="simpsons-quotes"></div>
 			</div>
@@ -42,14 +43,14 @@
 			crossorigin="anonymous"
 		></script>
 		<script>
-			// This function loads simpsons data from the simpsons API
+
 function fetchSimpsonsJSON() {
-	// Feel free to download this HTML and edit it, to use another simpsons ID
+
 	const quoteNb = 3;
 	const url = `https://simpsons-quotes-api.herokuapp.com/quotes?count=${quoteNb}`;
 	axios.get(url)
 	  .then(function(response) {
-		return response.data; // response.data instead of response.json() with fetch
+		return response.data;
 	  })
 	  .then(function(simpsons) {
 		console.log('data decoded from JSON:', simpsons);
@@ -69,7 +70,10 @@ function fetchSimpsonsJSON() {
 		document.querySelector('#simpsons-quotes').innerHTML = simpsonsHtml;
 	  });
   }
-  setTimeout(fetchSimpsonsJSON, 3000);
+  
+const element = document.getElementById("change");
+element.addEventListener("click", fetchSimpsonsJSON);
+  setTimeout(fetchSimpsonsJSON, 10000);
   fetchSimpsonsJSON();
   
 		</script>
