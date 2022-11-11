@@ -29,7 +29,7 @@
 	<body>
 		<section class="section">
 			<div class="container">
-				<h1 class="title">Simpson API</h1>
+				<h1 class="title">Here's three quotes imported from The Simpson API<br><br></h1>
 
 				<div class="content" id="simpsons-quotes"></div>
 			</div>
@@ -55,10 +55,14 @@ function fetchSimpsonsJSON() {
 		console.log('data decoded from JSON:', simpsons);
   
 		// Build a block of HTML
-		const simpsonsHtml = `<p><strong>${simpsons[0].quote}</strong></p><br>
+		const simpsonsHtml = `
+		<p><strong>${simpsons[0].quote}</strong></p><br>
+		<p><i>${simpsons[0].character}</i></p><br><br>
 		<p><strong>${simpsons[1].quote}</strong></p><br>
-		<p><strong>${simpsons[2].quote}</strong></p><br>`;
-
+		<p><i>${simpsons[1].character}</i></p><br><br>
+		<p><strong>${simpsons[2].quote}</strong></p><br>
+		<p><i>${simpsons[2].character}</i></p><br><br>
+`;
 		document.querySelector('#simpsons-quotes').innerHTML = simpsonsHtml;
 	  });
   }
