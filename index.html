@@ -42,9 +42,9 @@
 			crossorigin="anonymous"
 		></script>
 		<script>
-			// This function loads pokemon data from the Pokemon API
+			// This function loads simpsons data from the simpsons API
 function fetchSimpsonsJSON() {
-	// Feel free to download this HTML and edit it, to use another Pokemon ID
+	// Feel free to download this HTML and edit it, to use another simpsons ID
 	const quoteNb = 3;
 	const url = `https://simpsons-quotes-api.herokuapp.com/quotes?count=${quoteNb}`;
 	axios.get(url)
@@ -56,17 +56,20 @@ function fetchSimpsonsJSON() {
   
 		// Build a block of HTML
 		const simpsonsHtml = `
+		<img src="${simpsons[0].image}" />
 		<p><strong>${simpsons[0].quote}</strong></p><br>
 		<p><i>${simpsons[0].character}</i></p><br><br>
+		<img src="${simpsons[1].image}" />
 		<p><strong>${simpsons[1].quote}</strong></p><br>
 		<p><i>${simpsons[1].character}</i></p><br><br>
+		<img src="${simpsons[2].image}" />
 		<p><strong>${simpsons[2].quote}</strong></p><br>
 		<p><i>${simpsons[2].character}</i></p><br><br>
 `;
 		document.querySelector('#simpsons-quotes').innerHTML = simpsonsHtml;
 	  });
   }
-  //setTimeout(fetchSimpsonsJSON, 3000);
+  setTimeout(fetchSimpsonsJSON, 3000);
   fetchSimpsonsJSON();
   
 		</script>
